@@ -38,5 +38,3 @@ if ~all(arrayfun(@(x)strcmp(C.RegionAcronyms(x),RegionStruct(x).acronym),1:lengt
     % Some mismatches between regions in C and G datasets
     error('Regions do not match... :(');
 end
-
-% cd('/Users/Aurina/GoogleDrive/Genetics_connectome/CElegans/CElegansCode/TestingData')

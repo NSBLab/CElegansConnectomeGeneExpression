@@ -4,7 +4,7 @@ This repository provides the code for reproducing a range of analyses involving 
 
 Please read our paper, and if you use this code, please cite our paper:
 
-A. Arnatkeviciute, B.D. Fulcher, R. Pocock, and A. Fornito. Hub connectivity, neuronal diversity, and gene expression in the _C. elegans_ connectome (in submission).
+A. Arnatkeviciute\*, B.D. Fulcher\*, R. Pocock, and A. Fornito. Hub connectivity, neuronal diversity, and gene expression in the _C. elegans_ connectome (in submission).
 
 Contact Aurina Arnatkeviciute by [email](mailto:aurina.arnatkeviciute@monash.edu) or Ben Fulcher by [email](mailto:ben.d.fulcher@gmail.com) or [twitter](https://twitter.com/bendfulcher).
 

@@ -13,7 +13,7 @@ function C = Print_neuronconnect()
 % go to where the original .csv file is located
 
 C = struct();
-inputFileName = 'NeuronConnect(corrected).csv';
+inputFileName = 'NeuronConnect_corrected.csv';
 fprintf(1,'Reading in connectivity data from %s\n',which(inputFileName));
 fid = fopen(inputFileName);
 D = textscan(fid, '%s%s%s%s','Delimiter',',');

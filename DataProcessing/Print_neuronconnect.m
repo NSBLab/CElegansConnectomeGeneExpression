@@ -278,7 +278,7 @@ C.BirthTimeDiff = birthTimeDiff;
 C.BirthTime = birthTimes;
 
 % make mask for removing distance, lineage and birth time difference information for L/R pairs of neurons
-LRmask = GiveMeLRMask(C.RegionStruct);
+LRmask = GiveMeLRMask(C);
 %-------------------------------------------------------------------------------
 % Add distance matrix for 2D and 3D coordinates
 %-------------------------------------------------------------------------------

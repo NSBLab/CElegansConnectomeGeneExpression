@@ -54,7 +54,7 @@ fprintf(1,' Done\n');
 %===============================================================================
 % Create additional matrices with no LR coexpression for each correlation measure
 %===============================================================================
-maskIsLR = GiveMeLRMask(G.RegionStruct);
+maskIsLR = GiveMeLRMask(G);
 
 % Put NaNs over LR symmetric connections:
 for p = 1:numCorrMeasLR

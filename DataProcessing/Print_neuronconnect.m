@@ -285,7 +285,7 @@ LRmask = GiveMeLRMask(C.RegionStruct);
 %% calculate euclidean distance between neurons
 C.Eucl_Dist_2D = squareform(pdist(Worm279_positions,'Euclidean'));
 C.Pos3D = CoordinateTo3d(Worm279_positions,isLeft);
-C.Eucl_Dist_3D = squareform(pdist(C.Pos3D,'Euclidean')); 
+C.Eucl_Dist_3D = squareform(pdist(C.Pos3D,'Euclidean'));
 
 C.LineageDistance_noLR = LineageDistance;
 C.LineageDistance_noLR(LRmask) = NaN;
@@ -303,27 +303,9 @@ fprintf(1,'Adding hierarchical information...');
 C = NeuronRegionFinder(C,false);
 fprintf(1,' Done.\n');
 
-%Neuronlist279 = [Neurons, num2cell(Neuronlist279IDs)];
-%save('Neuron_list279.mat', 'Neuronlist279');
-
 %-------------------------------------------------------------------------------
 % SAVE file
 %-------------------------------------------------------------------------------
 connDataFile = fullfile('Data','CElegansConnectivityData.mat');
 save(connDataFile,'C');
 fprintf(1,'Saved connectivity data and annotations to %s\n',connDataFile);
-
-%-------------------------------------------------------------------------------
-% SAVING to file
-% %-------------------------------------------------------------------------------
-% fileName = fullfile('Data','Neuron_list279.mat');
-% fprintf(1,'Saving %s\n',fileName);
-% save(fileName,'Neuronlist279');
-%
-% fileName = fullfile('Data','CElegansConnectivityData.mat');
-% fprintf(1,'Saving %s\n',fileName);
-% save(fileName,'inputFileName', 'Adj_B','Adj_B_Names','Adj_W','Adj_W_Names', ...
-%     'RegionAcronyms', 'NumRegions', 'Pos','Eucl_Dist','RegionStruct','Adj_T',...
-%     'Adj_T_Names','p_th');
-%
-% end

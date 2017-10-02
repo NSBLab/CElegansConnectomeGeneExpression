@@ -1,4 +1,4 @@
-function [dataCell, P,S] = plotInterneuronDistributions(C,G)
+function [dataCell, P,S, nC, nN] = plotInterneuronDistributions(C,G)
 
 D = GiveMeDefault; 
 kHub = D.kHub; 
@@ -36,10 +36,12 @@ nonhubInterneurons = nonzeros(triu(coexp(interneurons==1, interneurons==1),1));
 
 %% coexpression for hub command interneurons
 hubANDcommand = hubs & command; 
+nC = sum(hubANDcommand); 
 commandH = nonzeros(triu(coexp(hubANDcommand==1, hubANDcommand==1),1)); 
 
 %% coexpression between other hub neurons
 hubNOTcommand = hubs & ~command; 
+nN = sum(hubNOTcommand); 
 noncommandH = nonzeros(triu(coexp(hubNOTcommand==1, hubNOTcommand==1),1)); 
 
 dataCell{1} = allH; dataCell{2} = nonhubInterneurons; dataCell{3} = commandH; dataCell{4} = noncommandH; 

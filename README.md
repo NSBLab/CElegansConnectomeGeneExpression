@@ -23,6 +23,6 @@ RegenerateData;
 which is located in DataProcessing folder. 
 
 ### Analysis
-Figures in our paper can be regenerated using functions in the **FigureGenerators** directory.
+Figures in our paper can be regenerated using functions in the **FigureGenerators** directory. All scripts should be run from the route directory. 
 Other relevant analysis scripts are in **Analysis**.
 Run `LoadAllData` to add all required paths and load necessary gene expression and connectivity data (stored in `G` and `C` data structures, respectively).

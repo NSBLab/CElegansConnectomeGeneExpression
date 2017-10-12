@@ -26,12 +26,12 @@ else
 end
 
 if nargin < 4
-    doSubset = true;
-     fprintf('Using a subset of anatomicaly similar interneurons by DEFAULT\n')
+    doSubset = false;
+     fprintf('Using all non-hub interneurons by DEFAULT\n')
 end
 
 if nargin < 5
-    doConnected = false;
+    doConnected = true;
      fprintf('Using all links by DEFAULT\n')
 end
 

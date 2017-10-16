@@ -70,7 +70,7 @@ end
 pos = sp2.Position;
 sp2.Position = [pos(1)*0.6, pos(2)*2.5, pos(3)*1, pos(4)*0.8]; % [left bottom width height]
 xlabel('Degree, k', 'FontSize', 15);
-axisName = {'Median gene', 'coexpression, r_\phi'};
+axisName = {'Median correlated', 'gene expression, r_\phi'};
 ylabel(axisName, 'FontSize', 12);
 set(gca,'Ytick', [0 .2 .4 .6], 'YTickLabel',[0 .2 .4 .6], 'FontSize', 15);
 hold on;
@@ -85,12 +85,12 @@ colors = num2cell(rgb_colorMatrix, 2);
 extraParams = struct('customSpot','.');
 extraParams.theColors = colors;
 JitteredParallelScatter(dataCell,true,1,false, extraParams);
-xLabels = {'Hub interneurons', 'Non-hub interneurons'};
+xLabels = {sprintf('Rich interneuron pairs (%d)',length(dataCell{1})), sprintf('Non-rich interneuron pairs (%d)', length(dataCell{2}))};
 %xtickangle(20);
 set(gca,'Xtick', [1 2], 'XTickLabel',xLabels, 'FontSize', 15);
 set(gca,'Ytick', [0 0.2 0.4 0.6 0.8 1], 'YTickLabel',[0 0.2 0.4 0.6 0.8 1], 'FontSize', 15);
 set(gca,'box','off');
-ylabel('Gene coexpression, r_\phi','FontSize', 15);
+ylabel('Correlated gene expression, r_\phi','FontSize', 15);
 hold on;
 
 set(sp3, 'Position', [0.6 0.28 0.3 0.47]); 

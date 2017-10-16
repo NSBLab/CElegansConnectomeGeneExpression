@@ -44,7 +44,8 @@ hubNOTcommand = hubs & ~command;
 nN = sum(hubNOTcommand); 
 noncommandH = nonzeros(triu(coexp(hubNOTcommand==1, hubNOTcommand==1),1)); 
 
-dataCell{1} = allH; dataCell{2} = nonhubInterneurons; dataCell{3} = commandH; dataCell{4} = noncommandH; 
+%dataCell{1} = allH; dataCell{2} = nonhubInterneurons; 
+dataCell{1} = commandH; dataCell{2} = noncommandH; 
 %JitteredParallelScatter(dataCell); 
 [P.commandNONcommand, ~, S.commandNONcommand] = ranksum(commandH,noncommandH); 
 [P.noncommandNONhub, ~, S.noncommandNONhub] = ranksum(noncommandH,nonhubInterneurons); 

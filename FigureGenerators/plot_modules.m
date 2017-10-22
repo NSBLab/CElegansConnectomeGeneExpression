@@ -5,7 +5,7 @@
 %-------------------------------------------------------------------------------
 
 miniVersion = true; % Just plot the intra-modular hub distributions
-reCompute = false; % recompute module calculation
+reCompute = true; % recompute module calculation
 
 % Parameters for Louvain algorithm:
 gamma = 1;

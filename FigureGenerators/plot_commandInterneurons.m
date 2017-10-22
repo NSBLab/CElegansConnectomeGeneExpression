@@ -17,4 +17,4 @@ xLabels = {'Command interneurons', 'Non-command interneurons'};
 set(gca,'Xtick', [1 2], 'XTickLabel',xLabels, 'FontSize', 15);
 set(gca,'Ytick', [0 0.2 0.4 0.6 0.8 1], 'YTickLabel',[0 0.2 0.4 0.6 0.8 1], 'FontSize', 15);
 set(gca,'box','off');
-ylabel('Gene coexpression, r_\phi','FontSize', 15);
+ylabel('Correlated gene expression, r_\phi','FontSize', 15);

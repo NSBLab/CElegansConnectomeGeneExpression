@@ -1,5 +1,5 @@
 %===============================================================================
-% SUPP distributions
+% Distributions Figure 6 main text
 %===============================================================================
 % get data for reciprocally -unidirectionally and unconnected pairs
 f = figure('color', 'w');
@@ -25,7 +25,7 @@ nFout = nansum(logical(dataCell{7}));
 nP = nansum(logical(dataCell{5}));
 
 JitteredParallelScatter(dataCell, true, true, false, extraParams)
-ylabel('Gene coexpression, r_\phi', 'FontSize', 18);
+ylabel('Correlated gene expression, r_\phi', 'FontSize', 18);
 set(gca,'Xtick', [1 2 3 4 5 6 7 8], 'XTickLabel',{sprintf('Electrical (%d pairs)', nEL), ...
                     sprintf('Chemical reciprocal (%d pairs)',nCrec),...
                     sprintf('Chemical unidirectional (%d pairs)',nCuni),...

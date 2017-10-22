@@ -10,7 +10,7 @@ networkType = 'bd';
 nullModel = 'randmio_dir';
 numIter = 50;
 numNullNetworks = 1000;
-doRecompute = false;
+doRecompute = true;
 
 % ----(RECOMPUTE)----:
 if doRecompute
@@ -55,3 +55,12 @@ nullModel = 'randmio_dir';
 h_RCcurveM = PlotRichClubW(D.whatConns,networkType,nullModel, numIter,numNullNetworks, [.6 .73 .45; .91 1 .86],false);
 
 legend([h_RCcurveW,h_RCcurveM],{'\Phi_{normWeighted}','\Phi_{normMixed}'},'Location','NorthWest', 'FontSize', 10);
+
+%===============================================================================
+% MAIN-representation of the connectom in space
+%===============================================================================
+VisRichConns(C)
+%===============================================================================
+% SUPP-CGE distance correction
+%===============================================================================
+CoExpressionDistanceCorrect(C,G)

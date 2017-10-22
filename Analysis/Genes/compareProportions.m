@@ -62,7 +62,7 @@ ax = gca;
 imagesc(averageCorrelation);
 title(sprintf('Correlation matrix %s', binaryCorrelation));
 colorbar; %caxis([-1 1]);
-colormap([flipud(BF_getcmap('blues',9));[1 1 1]; BF_getcmap('reds',9)]);
+colormap([flipud(BF_getcmap('blues',9));[1 1 1]; BF_getcmap('reds',9)]); %
 xlabel(sprintf('Number of ones in a vector 1 (/%u)',numGenes));
 ylabel(sprintf('Number of ones in a vector 2 (/%u)',numGenes));
 xtick = numCases;

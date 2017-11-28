@@ -1,4 +1,4 @@
-function [S,P] = RichClub(C,G,analyzeWhat,measure,coexpMeasure,whatMask,whatAdj,networkType,useOnlyInterneurons,doRanksum)
+function [S,P] = RichClub(C,G,whatNetwork, analyzeWhat,measure,coexpMeasure,whatMask,whatAdj,networkType,useOnlyInterneurons,doRanksum)
 % ------------------------------------------------------------------------------
 % Function plots coexpression for rich/feeder/peripheral lins as a function
 % of degree using mean to summarise coexpression at each threshold
@@ -10,37 +10,40 @@ function [S,P] = RichClub(C,G,analyzeWhat,measure,coexpMeasure,whatMask,whatAdj,
 % analyzeWhat 'coexpression', 'lineage distance', 'connection distance';
 % coexpMeasure - choose coexpression measure as defined in G.Corr. default Pearson_noLR
 % ------------------------------------------------------------------------------
-
 if nargin < 3
+    whatNetwork = 'all'; 
+end
+
+if nargin < 4
     analyzeWhat = 'coexpression';
 end
-if nargin < 4 || isempty(measure)
+if nargin < 5 || isempty(measure)
     measure = 'median';
 end
-if nargin < 5 && strcmp(analyzeWhat, 'coexpression')
+if nargin < 6 && strcmp(analyzeWhat, 'coexpression')
     coexpMeasure = 'Pearson';
     fprintf(1,'Using Pearson without LR coexpression BY DEFAULT\n');
 end
-if nargin == 5 && strcmp(analyzeWhat,'coexpression')
+if nargin == 6 && strcmp(analyzeWhat,'coexpression')
     coexpMeasure=coexpMeasure;
 end
-if nargin < 6
+if nargin < 7
     whatMask = 'connected'; % 'connected', 'connectedEither', 'rich'
 end
-if nargin < 7
+if nargin < 8
     whatAdj = 'zeroBinary'; % 'rawBinary','raw weighted','zero binary','zero weighted'
 end
-if nargin < 8
+if nargin < 9
     networkType = 'bd'; % 'bu','bd','wu','wd'
 end
-if nargin < 9
+if nargin < 10
     useOnlyInterneurons = false; % 1-use only interneurons; 2 - use all neurons except interneurons or 0-use all neurons
 end
-if nargin < 10
+if nargin < 11
     doRanksum = true;
 end
 pThreshold = 0.05;
-D = GiveMeDefault();
+D = GiveMeDefault(whatNetwork);
 % ------------------------------------------------------------------------------
 %% INPUTS:
 % ------------------------------------------------------------------------------
@@ -73,7 +76,7 @@ plotDist = false; % plot full distributions (at each k)
 %% Assign data measured at each link in the network
 % ------------------------------------------------------------------------------
 % All directed connections:
-linkedAdj = GiveMeAdj(C,whatAdj);
+linkedAdj = GiveMeAdj(C,whatAdj, D.whatConns);
 % Add a mask to only include particular types of connections
 mask = GiveMeMask(C, whatMask,networkType,linkedAdj,extraParam,1);
 numNeurons = size(linkedAdj,1);

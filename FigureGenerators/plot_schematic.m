@@ -15,7 +15,7 @@ PlotMatrixRichFeederPeripheral(C,[],'',true,sortNeurons,addMetadata);
 % Gene expression plot:
  %subplot(1,4,2:3)
 f = figure('color','w');
-plotGeneExpression(G,C,false,sortGenes,false);
+plotGeneExpression(G,C,false,sortGenes,false, sortNeurons);
 
 % Coexpression plot
 %subplot(1,4,4)

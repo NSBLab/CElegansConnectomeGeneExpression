@@ -1,4 +1,4 @@
-function [A,dist,ord] = plotGeneExpression(G,C,doInterneurons,sortGenesHow,extraHistogram)
+function [A,dist,ord] = plotGeneExpression(G,C,doInterneurons,sortGenesHow,extraHistogram, sortNeurons)
 %% reorders gene expression data according to clusters
 % ------------------------------------------------------------------------------
 % Aurina Arnatkeviciute
@@ -47,8 +47,15 @@ end
 % Sort neurons by degree (descending)
 % Binary chemical synapse network connectivity data
 % [sdeg,dind] = sort(deg,'descend');
+switch sortNeurons
+    case 'xPos'
 [~,dind] = sort(C.Pos(:,1),'descend'); % head-to-tail
 fprintf(1,'Gene expression ordered by x position\n');
+    case 'degree'
+[~,dind] = sort(deg,'ascend'); % degree
+end
+        
+        
 
 % Reorder expression matrix
 expData_ord = expData(dind,ord);

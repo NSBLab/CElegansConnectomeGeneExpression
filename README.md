@@ -28,8 +28,10 @@ which is located in DataProcessing folder. It will create CElegansConnectivityDa
 ```matlab
 LoadAllData;
 ```
-Gene expression matrix in the format 279 (neurons) x 948 (genes) is located in G.GeneExpData.Direct;\\
-Binary connectivity matrices for 3 network representations (chemical synapses, electrical synapses, chemical and electrical synapses combined) are located in C.Adj_B cell.\\
+Gene expression matrix in the format 279 (neurons) x 948 (genes) is located in G.GeneExpData.Direct;
+
+Binary connectivity matrices for 3 network representations (chemical synapses, electrical synapses, chemical and electrical synapses combined) are located in C.Adj_B cell.
+
 Weighted connectivity matrices for 3 network representations (chemical synapses, electrical synapses, chemical and electrical synapses combined) are located in C.Adj_W cell.
 
 ### Analysis

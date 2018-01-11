@@ -1,10 +1,12 @@
-function VisRichConns(C)
+function VisRichConns(C, G, labelWhat)
 %-------------------------------------------------------------------------------
 % Idea is to plot hub-hub connections through space
 %-------------------------------------------------------------------------------
+if nargin < 3
+    labelWhat = 'type'; 
+end
+% labelWhat = 'type';
 
-% labelWhat = 'hub';
-labelWhat = 'type';
 fontSize = 13;
 
 
@@ -25,16 +27,25 @@ Adj = GiveMeAdj(C,'zeroBinary');
 [~,~,deg] = degrees_dir(Adj);
 isHub = (deg > D.kHub)';
 switch labelWhat
-case 'hub'
-    neuronLabels = zeros(C.numNeurons,1);
-    neuronLabels(isHub) = 1;
-    neuronLabels = categorical(neuronLabels,[0,1],{'hub','nonhub'});
-    theLabels = categories(neuronLabels);
-    theColors = GiveMeColors('HubNonHub');
-case 'type'
-    neuronLabels = LabelNeuronType(C,'type');
-    theLabels = {'interneuron','motor','sensory','multi'};
-    theColors = GiveMeColors('InterneuronMotorSensoryMulti');
+    case 'hub'
+        neuronLabels = zeros(C.numNeurons,1);
+        neuronLabels(isHub) = 1;
+        neuronLabels = categorical(neuronLabels,[0,1],{'hub','nonhub'});
+        theLabels = categories(neuronLabels);
+        theColors = GiveMeColors('HubNonHub');
+    case 'type'
+        neuronLabels = LabelNeuronType(C,'type');
+        theLabels = {'interneuron','motor','sensory','multi'};
+        theColors = GiveMeColors('InterneuronMotorSensoryMulti');
+    case 'highCoexp'
+        [row, col, combinedMask] = listHighCGEneurons(C,G);
+        neuronLabels = zeros(C.numNeurons,1);
+        neuronLabels(row) = 1;
+        neuronLabels(col) = 1;
+        neuronLabels = categorical(neuronLabels,[0,1],{'high','nonhigh'});
+        theLabels = categories(neuronLabels);
+        theColors = GiveMeColors('anatomyType');
+        
 end
 numLabels = length(theLabels);
 
@@ -48,6 +59,8 @@ for i = 1:numAxes
     % Plot hub-hub connections
     %-------------------------------------------------------------------------------
     isRich = double(isHub)*double(isHub)';
+    isRich = double(isHub)*double(isHub)';
+
 
     % Plot non-rich connections
     if i < 3
@@ -59,9 +72,13 @@ for i = 1:numAxes
                         '-','LineWidth',0.2,'color',ones(1,3)*0.85)
         end
     end
-
+    
+    if strcmp(labelWhat,'highCoexp')
+    isRichConn = combinedMask; 
+    else
     % Plot rich connections
     isRichConn = isRich.*Adj;
+    end
     [theConns_i,theConns_j] = find(isRichConn);
     numConns = length(theConns_i);
     for j = 1:numConns
@@ -102,7 +119,11 @@ for i = 1:numAxes
         title('tail')
         ax{i}.Position = [0.5422    0.3388    0.3628    0.3412];
     case 2 % head
+        if strcmp(labelWhat, 'highCoexp')
+        ax{i}.XLim = sort(-[-0.01,0.142]);
+        else 
         ax{i}.XLim = sort(-[0,0.142]);
+        end
         ax{i}.YLim = sort(-[-0.025,0.03]);
         ax{i}.Position = [0.1300    0.3388    0.3628    0.3412];
         title('head')

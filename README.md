@@ -4,9 +4,9 @@ This repository provides the code for reproducing a range of analyses involving 
 
 Please read our paper, and if you use this code, please cite our paper:
 
-A. Arnatkeviciute\*, B.D. Fulcher\*, R. Pocock, and A. Fornito. [Hub connectivity, neuronal diversity, and gene expression in the _C. elegans_ connectome](https://www.biorxiv.org/content/early/2017/10/21/207134), _bioRxiv_ 207134.
+A. Arnatkeviciute\*, B.D. Fulcher\*, R. Pocock, and A. Fornito. [Hub connectivity, neuronal diversity, and gene expression in the _C. elegans_ connectome](https://doi.org/10.1371/journal.pcbi.1005989), Plos Computational Biology, Published: February 12, 2018.
 
-Contact Aurina Arnatkeviciute by [email](mailto:aurina.arnatkeviciute@monash.edu) or Ben Fulcher by [email](mailto:ben.d.fulcher@gmail.com) or [twitter](https://twitter.com/bendfulcher).
+Contact Aurina Arnatkeviciute by [email](mailto:aurina.arnatkeviciute@monash.edu) or [twitter](https://twitter.com/AurinaArn). Contact Ben Fulcher by [email](mailto:ben.d.fulcher@gmail.com) or [twitter](https://twitter.com/bendfulcher).
 
 Dependencies:
 [Brain Connectivity Toolbox](https://sites.google.com/site/bctnet/), Version 2017-15-01.

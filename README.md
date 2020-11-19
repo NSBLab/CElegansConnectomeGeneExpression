@@ -16,7 +16,7 @@ Dependencies:
 In order to reproduce data used in the analyses please download the contents of this repository.
 
 ### Data files
-Data files required for this project are hosted on [this figshare repository](https://figshare.com/s/797199619fbabdab8c86).
+Data files required for this project are hosted on [this figshare repository](https://doi.org/10.4225/03/59eb125e3f636).
 Please create a directory called **Data** in the root directory of this repository and download data there.
 
 ### Data processing
